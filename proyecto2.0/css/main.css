@@ -1,0 +1,8 @@
+.carousel-inner > .carousel-item > img {
+    height: 100vh;
+  }
+
+.carousel-inner > .carousel-item {
+    color: black;
+}
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/proyecto/img/icono_libro_abierto_sencillo.png">
+  <link rel="stylesheet" href="/proyecto/boostrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/proyecto/css/main.css">
+  <title>registrarse</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="index">
+          <img
+            src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+            alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+          Biblioteca
+        </a>
+      </div>
+      <div class="collapse navbar-collapse g-5 p-2" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="index">Inicio</a>
+          </li>
+        </ul>
+        <div class="navbar-nav">
+          <a class="btn btn-primary" aria-current="page" href="login">Cuenta</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+<section class="text-center">
+    
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+  
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -100px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+      <div class="card-body py-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">REGISTRATE AHORA</h2>
+            <form class="row">
+              
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="Nombre">Nombres</label>
+                    <input type="text" id="Nombre" class="form-control" />
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="Apellidos">Apellidos</label>
+                    <input type="text" id="Apellidos" class="form-control" />
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label class="form-label" for="Tipo_ident">Tipo de documento</label>
+                  <div class="form-outline">
+                    <select id="Tipo_ident" class="form-control selelect"  style="width:100% ; height:38px;">
+                        <option value="CC">Cedula de ciudadania</option>
+                        <option value="Ti">Tarjeta de identidad</option>
+                      </select>
+                  </div>    
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="Numero_ident">Numero de identidad</label>
+                    <input type="number" id="Numero_ident" class="form-control" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="Direccion">Dirección</label>
+                        <input type="text" id="Direccion" class="form-control" />
+                    </div>
+        
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="Ciudad">Ciudad</label>
+                        <input type="text" id="Ciudad" class="form-control" />
+                      </div>
+                </div>
+              </div>
+              
+              <div class="form-outline mb-4">
+                <label class="form-label" for="Edad">Edad</label>
+                <input type="number" id="Edad" class="form-control" />
+              </div>
+  
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Correo Electronico</label>
+                <input type="email" id="form3Example3" class="form-control" />
+              </div>
+  
+              <div class="form-outline mb-4">
+                <label class="form-label" for="Correo_e">Contraseña</label>
+                <input type="password" id="Correo_e" class="form-control" />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Registrarse
+              </button>
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="container-fluid">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <img
+            src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+            width="70px" height="auto">
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">&copy; Biblioteca Virtual de Colombia</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es"><img src="Recursos/twitter.svg"
+              width="24px" height="auto"></a>
+        </li>
+        <li class="ms-3"><a class="text-muted" href="https://www.instagram.com"><img src="Recursos/instagram.svg"
+              width="24px" height="auto"></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://www.facebook.com"><img src="Recursos/facebook.svg" width="24px"
+              height="auto"></a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>

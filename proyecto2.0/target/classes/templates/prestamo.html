@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/proyecto/img/icono_libro_abierto_sencillo.png">
+    <link rel="stylesheet" href="/proyecto/boostrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/proyecto/css/main.css">
+    <title>Prestamo</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="index">
+          <img
+            src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+            alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+          Biblioteca
+        </a>
+      </div>
+      <div class="collapse navbar-collapse g-5 p-2" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-primary" aria-current="page" href="index">Inicio</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+      <div class="container">
+        <form class="row g-3 mt-3">
+            <div class="col-6">
+                    <div class="input-group"> 
+                    <span class="input-group-text">CODIGO</span>
+                    <input id="Codi_libro" type="text" class="form-control" placeholder="Libro">
+                    </div>
+            </div>
+            <div class="col-6 mt-3">
+              <input id="Numero_ident" type="text" class="form-control" placeholder="Numero de documento">
+                
+            </div>
+
+            <div class="col-6">
+                <label for="Fecha_prestamo" class="form-label">Fecha del prestamo</label>
+                <input id="Fecha_prestamo" type="date" class="form-control">
+            </div>
+            <div class="col-6">
+                <label for="Fecha_devolucion" class="form-label">Fecha de devolucion</label>
+                <input id="Fecha_devolucion" type="date" class="form-control">
+            </div>
+
+            
+                <button class="btn btn-primary btn-block" type="submit">Enviar Solicitud</button>
+            
+
+        </form>
+
+
+       </div>
+
+
+
+       <div class="container-fluid">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <img
+                src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+                width="70px" height="auto">
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">&copy; Biblioteca Virtual de Colombia</span>
+          </div>
+    
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es"><img src="Recursos/twitter.svg"
+                  width="24px" height="auto"></a>
+            </li>
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com"><img src="Recursos/instagram.svg"
+                  width="24px" height="auto"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.facebook.com"><img src="Recursos/facebook.svg" width="24px"
+                  height="auto"></a>
+            </li>
+          </ul>
+        </footer>
+      </div>
+      
+    <script src="/proyecto/boostrap/bootstrap.bundle.min.js"></script>
+    <script src="/proyecto/boostrap/bootstrap.bundle.min.js.map"></script> 
+    
+</body>
+
+</html>
