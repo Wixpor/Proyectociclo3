@@ -66,13 +66,47 @@
                 <td th:text="${Libros.Genero}"></td>
                 <td th:text="${Libros.No_paginas}"></td>
                 <td th:text="${Libros.Fecha_lanzamiento}"></td>
-                <td>
-                    <a class="btn btn-primary" th:href="@{'/'+${Libros.Cod_libro}}">Editar</a>
-                    <a class="btn btn-danger" th:href="@{'/eliminar/'+${Libros.Cod_libro}}">Borrar</a>
-                </td>
+                
             </tr>
         </tbody>
     </table>
+
+    <h1 style="text-align: center;">Solicitar un libro</h1>
+
+
+    <!-- Formulario -->
+    <div class="container">
+      <form class="row g-3 mt-3" th:action="@{/guardarprestamo}" th:object="${prestamos}" method="post">
+          <div class="col-6">
+              <div class="input-group">
+                  <span class="input-group-text">CODIGO</span>
+                  <input id="Codi_libro" type="text" name="Codi_libro" field="*{Codi_libro}" placeholder="Código del libro"
+                  class="form-control" required>
+              </div>
+          </div>
+          <div class="col-6 mt-3">
+              <input id="Numero_ident" type="text" name="Codi_usuario" field="*{Codi_usuario}" placeholder="Número de documento"
+              class="form-control" required>
+
+          </div>
+
+          <div class="col-6">
+              <label for="Fecha_prestamo" class="form-label">Fecha del prestamo</label>
+              <input id="Fecha_prestamo" type="date" name="Fecha_prestamo" field="*{Fecha_prestamo}"
+              class="form-control" required>
+          </div>
+          <div class="col-6">
+              <label for="Fecha_devolucion" class="form-label">Fecha de devolucion</label>
+              <input id="Fecha_devolucion" type="date" name="Fecha_devolucion" field="*{Fecha_devolucion}"
+              class="form-control" required>
+          </div>
+
+
+          <button class="btn btn-primary btn-block" type="submit">Enviar Solicitud</button>
+
+
+      </form>
+  </div>
 
 
     <!-- Footer -->

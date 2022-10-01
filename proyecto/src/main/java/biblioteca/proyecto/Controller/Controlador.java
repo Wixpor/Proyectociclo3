@@ -1,6 +1,8 @@
 package biblioteca.proyecto.Controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,18 +15,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import biblioteca.proyecto.Model.Libros;
+import biblioteca.proyecto.Model.Prestamos;
+import biblioteca.proyecto.Model.Usuarios;
 import biblioteca.proyecto.Repository.Libros_repo;
+import biblioteca.proyecto.Repository.Prestamos_repo;
+import biblioteca.proyecto.Repository.Usuarios_repo;
 
 @Controller
 public class Controlador {
     @Autowired
     private Libros_repo lrp;
+
+    @Autowired
+    private Usuarios_repo urp;
+
+    @Autowired
+    private Prestamos_repo prp;
+
     
     @GetMapping("/index")
     public String index(Model modelo){
-        List <Libros> lista_libros = lrp.findAll();
-        modelo.addAttribute("lista_libros", lista_libros);
-        return "index";
+        return "index";      
+        
     }
     @GetMapping("/nuevo")
     public String nuevo(){
@@ -35,12 +47,35 @@ public class Controlador {
     public String login(){
         return "login";
     }
+    @GetMapping("/Nuevousuario")
+    public String Nuevousuario(){
+        return "Nuevousuario";
+    }
+    
+
 
     @GetMapping("/registrado")
     public String registrado(Model modelo){
         List <Libros> lista_libros = lrp.findAll();
         modelo.addAttribute("lista_libros", lista_libros);
         return "registrado";
+    }
+    
+
+
+
+    @GetMapping("/admin")
+    public String admin(Model modelo){
+        List <Libros> lista_libros = lrp.findAll();
+        modelo.addAttribute("lista_libros", lista_libros);
+
+        List <Usuarios> lista_usuarios = urp.findAll();
+        modelo.addAttribute("lista_usuarios", lista_usuarios);
+
+        List <Prestamos> lista_prestamos = prp.findAll();
+        modelo.addAttribute("lista_prestamos", lista_prestamos);
+
+        return "admin";
     }
 
 
@@ -59,15 +94,61 @@ public class Controlador {
     @RequestMapping(value ="/guardar", method = RequestMethod.POST)
     public String guardar_libro(@ModelAttribute("libros") Libros libros){
         lrp.save(libros);
-        return "redirect:/registrado";
+        return "redirect:/admin";
     }
+
+
 
     @RequestMapping(value ="/eliminar/{Cod_libro}")
     public String eliminar(@PathVariable(name="Cod_libro") int Cod_libro){
         lrp.deleteById(Cod_libro);
+        return "redirect:/admin";
+    }
+
+    @RequestMapping(value ="/guardarprestamo", method = RequestMethod.POST)
+    public String guardar_prestamo(@ModelAttribute("Prestamos") Prestamos prestamos){
+        prp.save(prestamos);
         return "redirect:/registrado";
     }
 
+    @RequestMapping(value ="/eliminarusuario/{Numero_ident}")
+    public String eliminarusu(@PathVariable(name="Numero_ident") int Numero_ident){
+        urp.deleteById(Numero_ident);
+        return "redirect:/admin";
+    }
 
+
+
+    @RequestMapping(value ="/registro", method = RequestMethod.POST)
+    public String registrar_usuario(@ModelAttribute("usuarios") Usuarios usuarios){
+        urp.save(usuarios);
+        return "redirect:/registrado?Usuario registrado";
+    }
+
+
+    
+    @RequestMapping("/usuario")
+    public String comprobar(@ModelAttribute(name="usuario") Usuarios usuario){
+        var usr=usuario.getNumero_ident();
+        var exist= urp.existsById(usr);
+        
+        var cont=usuario.getContra();
+       
+        if(exist==true){
+            
+            if (cont==""){
+                return "redirect:/admin";
+            }
+            else{
+                //contrasena invalida
+                return "index";
+            }
+            
+        }
+        else{
+            return "error_usuario";
+        }
+        //return "mi_cuenta{usr}";
+    }
 
 }
