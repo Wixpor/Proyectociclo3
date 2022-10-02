@@ -8,44 +8,45 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Biblioteca</title>
+    <title>Usuario</title>
 </head>
 
-<body>
+<body class="container"
+    style="background: url(https://img.freepik.com/fotos-premium/fondo-textura-papel-retro-vintage-antiguo-grunge_47840-948.jpg?w=2000); background-size:cover; background-attachment:fixed; ">
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-          <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top container">
+        <div class="container-fluid" style="display: flex;">
             <a class="navbar-brand text-white" href="index">
-              <img src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-              Biblioteca
+                <img src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+                    alt="" width="40" height="35" class="d-inline-block align-text-top">
+                Biblioteca
             </a>
-          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" style="background-color: white;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active text-white" aria-current="page" href="index">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="nuevo">Nuevo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-white" aria-current="page" href="login">Login</a>
-                    </li>
-
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+                <li>
+                    <a type="button" class="btn btn-success" href="/">Cerrar sesión</a>
+                </li>
+
+
             </div>
+
         </div>
     </nav>
+    <br><br><br>
 
     <!-- Titulo -->
     <h1 class="text-center">Biblioteca</h1>
     <!-- Tabla -->
-    <table class="table container table-striped table-hover table-bordered">
+    <table class="table table-dark table-striped container table-striped table-hover table-bordered">
         <thead>
             <tr>
                 <th scope="col">Codigo</th>
@@ -66,75 +67,80 @@
                 <td th:text="${Libros.Genero}"></td>
                 <td th:text="${Libros.No_paginas}"></td>
                 <td th:text="${Libros.Fecha_lanzamiento}"></td>
-                
+
             </tr>
         </tbody>
     </table>
 
-    <h1 style="text-align: center;">Solicitar un libro</h1>
+
 
 
     <!-- Formulario -->
-    <div class="container">
-      <form class="row g-3 mt-3" th:action="@{/guardarprestamo}" th:object="${prestamos}" method="post">
-          <div class="col-6">
-              <div class="input-group">
-                  <span class="input-group-text">CODIGO</span>
-                  <input id="Codi_libro" type="text" name="Codi_libro" field="*{Codi_libro}" placeholder="Código del libro"
-                  class="form-control" required>
-              </div>
-          </div>
-          <div class="col-6 mt-3">
-              <input id="Numero_ident" type="text" name="Codi_usuario" field="*{Codi_usuario}" placeholder="Número de documento"
-              class="form-control" required>
+    <div class="container card" style="
+    background: hsla(0, 0%, 100%, 0.5);
+    backdrop-filter: blur(30px);
+    ">
+        <br>
+        <h1 style="text-align: center;">Solicitar un libro</h1>
+        <form class="row g-3 mt-3 container" th:action="@{/guardarprestamo}" th:object="${prestamos}" method="post">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text">CODIGO</span>
+                    <input id="Codi_libro" type="text" name="Codi_libro" field="*{Codi_libro}"
+                        placeholder="Código del libro" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <input id="Numero_ident" type="text" name="Codi_usuario" field="*{Codi_usuario}"
+                    placeholder="Número de documento" class="form-control" required>
 
-          </div>
+            </div>
 
-          <div class="col-6">
-              <label for="Fecha_prestamo" class="form-label">Fecha del prestamo</label>
-              <input id="Fecha_prestamo" type="date" name="Fecha_prestamo" field="*{Fecha_prestamo}"
-              class="form-control" required>
-          </div>
-          <div class="col-6">
-              <label for="Fecha_devolucion" class="form-label">Fecha de devolucion</label>
-              <input id="Fecha_devolucion" type="date" name="Fecha_devolucion" field="*{Fecha_devolucion}"
-              class="form-control" required>
-          </div>
-
-
-          <button class="btn btn-primary btn-block" type="submit">Enviar Solicitud</button>
+            <div class="col-6">
+                <label for="Fecha_prestamo" class="form-label">Fecha del prestamo</label>
+                <input id="Fecha_prestamo" type="date" name="Fecha_prestamo" field="*{Fecha_prestamo}"
+                    class="form-control" required>
+            </div>
+            <div class="col-6">
+                <label for="Fecha_devolucion" class="form-label">Fecha de devolucion</label>
+                <input id="Fecha_devolucion" type="date" name="Fecha_devolucion" field="*{Fecha_devolucion}"
+                    class="form-control" required>
+            </div>
 
 
-      </form>
-  </div>
+            <button class="btn btn-primary btn-block" type="submit">Enviar Solicitud</button>
+
+
+        </form>
+        <br>
+    </div>
 
 
     <!-- Footer -->
-  <div class="b-example-divider"></div>
+    <div class="b-example-divider"></div>
 
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <img
-            src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
-            width="100px" height="auto">
-        </a>
-        <span class="mb-3 mb-md-0 text-muted">&copy; Biblioteca Virtual de Colombia</span>
-      </div>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
+                        width="100px" height="auto">
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">&copy; Biblioteca Virtual de Colombia</span>
+            </div>
 
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es"><img src="Recursos/twitter.svg"
-              width="24px" height="auto"></a>
-        </li>
-        <li class="ms-3"><a class="text-muted" href="https://www.instagram.com"><img src="Recursos/instagram.svg"
-              width="24px" height="auto"></a></li>
-        <li class="ms-3"><a class="text-muted" href="https://www.facebook.com"><img src="Recursos/facebook.svg" width="24px"
-              height="auto"></a>
-        </li>
-      </ul>
-    </footer>
-  </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="https://twitter.com/?lang=es"><img
+                            src="Recursos/twitter.svg" width="24px" height="auto"></a>
+                </li>
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com"><img
+                            src="Recursos/instagram.svg" width="24px" height="auto"></a></li>
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com"><img src="Recursos/facebook.svg"
+                            width="24px" height="auto"></a>
+                </li>
+            </ul>
+        </footer>
+    </div>
 
 
     <!-- JavaScript Bundle with Popper -->

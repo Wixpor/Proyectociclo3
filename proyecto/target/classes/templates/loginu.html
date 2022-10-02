@@ -73,20 +73,27 @@
             <h3 class="mb-5">Iniciar Sesion</h3>
 
             <form class="row" th:action="@{/usuario}">
+
               <div class="form-outline mb-4">
                 <label class="form-label" for="Correo_e">identificación</label>
                 <input type="number" id="Correo_e" name="Numero_ident" th:value="${Numero_ident}"
                   class="form-control form-control-lg" required />
+                <label class="form-label" for="Contra" style="color:red;">Usúario no encontrado</label>
               </div>
+
               <div class="form-outline mb-4">
                 <label class="form-label" for="Contra">Contraseña</label>
                 <input type="password" name="Contra" th:value="${Contra}" class="form-control form-control-lg"
                   required />
               </div>
+
+
               <div class="form-check d-flex justify-content-start mb-4">
                 <a href="Nuevousuario" class="text-decoration-none">Registrarse</a>
               </div>
+
               <button class="btn btn-primary btn-lg btn-block" type="submit">Iniciar</button>
+
             </form>
 
             <hr class="my-4">

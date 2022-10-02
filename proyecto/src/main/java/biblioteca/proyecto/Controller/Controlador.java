@@ -1,8 +1,6 @@
 package biblioteca.proyecto.Controller;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,6 +44,14 @@ public class Controlador {
     @GetMapping("/login")
     public String login(){
         return "login";
+    }
+    @GetMapping("/loginc")
+    public String loginc(){
+        return "loginc";
+    }
+    @GetMapping("/loginu")
+    public String loginu(){
+        return "loginu";
     }
     @GetMapping("/Nuevousuario")
     public String Nuevousuario(){
@@ -131,24 +137,22 @@ public class Controlador {
     public String comprobar(@ModelAttribute(name="usuario") Usuarios usuario){
         var usr=usuario.getNumero_ident();
         var exist= urp.existsById(usr);
-        
         var cont=usuario.getContra();
-       
+
         if(exist==true){
-            
-            if (cont==""){
-                return "redirect:/admin";
+            var contreal=urp.getReferenceById(usr).getContra();
+            var auten=urp.getReferenceById(usr).getAdministrador();
+            if (cont.equals(contreal)){
+                if(auten!=null){
+                    if(auten.equals("Si")){return "redirect:/admin";}
+                    else{return "redirect:/registrado";}
+                }
+                else{return "redirect:/registrado";}
             }
-            else{
-                //contrasena invalida
-                return "index";
-            }
-            
+            else{return "redirect:/loginc";}
         }
-        else{
-            return "error_usuario";
-        }
-        //return "mi_cuenta{usr}";
+        else{return "redirect:/loginu";}
+
     }
 
 }
