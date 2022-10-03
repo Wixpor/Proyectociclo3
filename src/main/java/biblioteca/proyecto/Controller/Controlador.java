@@ -49,6 +49,7 @@ public class Controlador {
     public String loginc(){
         return "loginc";
     }
+    
     @GetMapping("/loginu")
     public String loginu(){
         return "loginu";
