@@ -36,9 +36,9 @@ public class Controlador {
         return "index";      
         
     }
-    @GetMapping("/nuevo")
+    @GetMapping("/Nuevo")
     public String nuevo(){
-        return "nuevo";
+        return "Nuevo";
     }
 
     @GetMapping("/login")
@@ -88,7 +88,7 @@ public class Controlador {
 
     @GetMapping("/{Cod_libro}")
     public ModelAndView editar(@PathVariable(name="Cod_libro") int Cod_libro){
-        ModelAndView modelo= new ModelAndView("editar");
+        ModelAndView modelo= new ModelAndView("Editar");
         Libros libros = lrp.getReferenceById(Cod_libro);
         modelo.addObject("libros",libros);
         return modelo;
