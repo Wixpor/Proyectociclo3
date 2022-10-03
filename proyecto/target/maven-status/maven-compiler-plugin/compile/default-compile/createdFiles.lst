@@ -1,0 +1,8 @@
+biblioteca\proyecto\Controller\Controlador.class
+biblioteca\proyecto\Model\Prestamos.class
+biblioteca\proyecto\Repository\Libros_repo.class
+biblioteca\proyecto\ProyectoApplication.class
+biblioteca\proyecto\Repository\Prestamos_repo.class
+biblioteca\proyecto\Model\Usuarios.class
+biblioteca\proyecto\Model\Libros.class
+biblioteca\proyecto\Repository\Usuarios_repo.class
