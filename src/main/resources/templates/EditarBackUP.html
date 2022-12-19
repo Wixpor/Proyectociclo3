@@ -8,12 +8,13 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Editar Formula</title>
+    <title>Editar Biblioteca</title>
 </head>
 
-<body>
+<body class="container"
+    style="background: url(https://img.freepik.com/fotos-premium/fondo-textura-papel-retro-vintage-antiguo-grunge_47840-948.jpg?w=2000); background-size:cover; background-attachment:fixed; ">
     <!-- Barra de navegación -->
-    <!-- <nav class="navbar navbar-expand-lg bg-dark fixed-top container">
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top container">
         <div class="container-fluid" style="display: flex;">
             <a class="navbar-brand text-white" href="index">
                 <img src="https://eng.isciii.es/eng.isciii.es/QueHacemos/Servicios/Biblioteca/PublishingImages/Paginas/default/catalogo_isciii.png"
@@ -36,7 +37,7 @@
                 </li>
             </div>
         </div>
-    </nav> -->
+    </nav>
     <br><br><br>
 
     <!-- Formulario -->
@@ -48,41 +49,41 @@
             ">
                 <h1 class="text-center">Editar libro</h1>
                 <div class="card-body">
-                    <form th:action="@{/guardar}" th:object="${formulas}" method="post">
+                    <form th:action="@{/guardar}" th:object="${libros}" method="post">
                         <div class="form-group">
-                            <label>Id</label>
-                            <input type="text" name="Id" field="*{Id}" th:value="${formulas.Id}"
-                                placeholder="Id" class="form-control" readonly="readonly" required>
+                            <label>Código</label>
+                            <input type="text" name="Cod_libro" field="*{Cod_libro}" th:value="${libros.Cod_libro}"
+                                placeholder="Código del libro" class="form-control" readonly="readonly" required>
                         </div>
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" name="Nombre" field="*{Nombre}"
-                                th:value="${formulas.Nombre}" placeholder="Título" class="form-control" required>
+                            <label>Título</label>
+                            <input type="text" name="Nombre_libro" field="*{Nombre_libro}"
+                                th:value="${libros.Nombre_libro}" placeholder="Título" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Descripción</label>
-                            <input type="text" name="descripcion" field="*{descripcion}" th:value="${formulas.descripcion}"
-                                placeholder="descripcion" class="form-control" required>
+                            <label>Editorial</label>
+                            <input type="text" name="Editorial" field="*{Editorial}" th:value="${libros.Editorial}"
+                                placeholder="Editorial" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Valor AG1</label>
-                            <input type="number" name="ValueAG1" field="*{ValueAG1}" th:value="${formulas.ValueAG1}"
-                                placeholder="Valor AG1" class="form-control" required>
+                            <label>Autor</label>
+                            <input type="text" name="Autor" field="*{Autor}" th:value="${libros.Autor}"
+                                placeholder="Autor" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Valor AG2</label>
-                            <input type="number" name="ValueAG2" field="*{ValueAG2}" th:value="${formulas.ValueAG2}"
-                                placeholder="Valor AG2" class="form-control" required>
+                            <label>Género</label>
+                            <input type="text" name="Genero" field="*{Genero}" th:value="${libros.Genero}"
+                                placeholder="Género" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Valor AG3</label>
-                            <input type="number" name="ValueAG3" field="*{ValueAG3}" th:value="${formulas.ValueAG3}"
-                                placeholder="Valor AG3" class="form-control" required>
+                            <label>Páginas</label>
+                            <input type="text" name="No_paginas" field="*{No_paginas}" th:value="${libros.No_paginas}"
+                                placeholder="Páginas" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Valor AG4</label>
-                            <input type="number" name="ValueAG4" field="*{ValueAG4}" th:value="${formulas.ValueAG4}"
-                                placeholder="Valor AG4" class="form-control" required>
+                            <label>Lanzamiento</label>
+                            <input type="date" name="Fecha_lanzamiento" field="*{Fecha_lanzamiento}"
+                                th:value="${libros.Fecha_lanzamiento}" placeholder="Lanzamiento" class="form-control">
                         </div>
                         <div class="box-footer text-center">
                             <br>
@@ -95,10 +96,10 @@
         </div>
     </div>
 
-    <a type="button" class="btn btn-primary" href="index" style="width: 150px;">Atrás</a>
+    <a type="button" class="btn btn-primary" href="admin" style="width: 150px;">Atrás</a>
 
     <!-- Footer -->
-    <!-- <div class="b-example-divider"></div>
+    <div class="b-example-divider"></div>
 
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -121,7 +122,7 @@
                 </li>
             </ul>
         </footer>
-    </div> -->
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"

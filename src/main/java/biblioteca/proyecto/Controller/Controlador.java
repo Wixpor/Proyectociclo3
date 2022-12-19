@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import biblioteca.proyecto.Model.Formulas;
 import biblioteca.proyecto.Model.Libros;
 import biblioteca.proyecto.Model.Prestamos;
 import biblioteca.proyecto.Model.Usuarios;
+
+import biblioteca.proyecto.Repository.Formulas_repo;
 import biblioteca.proyecto.Repository.Libros_repo;
 import biblioteca.proyecto.Repository.Prestamos_repo;
 import biblioteca.proyecto.Repository.Usuarios_repo;
@@ -30,9 +33,17 @@ public class Controlador {
     @Autowired
     private Prestamos_repo prp;
 
+    @Autowired
+    private Formulas_repo frp;
+
+    
     
     @GetMapping("/index")
     public String index(Model modelo){
+
+        List <Formulas> lista_formulas = frp.findAll();
+        modelo.addAttribute("lista_formulas", lista_formulas);
+
         return "index";      
         
     }
@@ -87,29 +98,26 @@ public class Controlador {
 
 
 
-    @GetMapping("/{Cod_libro}")
-    public ModelAndView editar(@PathVariable(name="Cod_libro") int Cod_libro){
-        ModelAndView modelo= new ModelAndView("Editar");
-        Libros libros = lrp.getReferenceById(Cod_libro);
-        modelo.addObject("libros",libros);
+    @GetMapping("/{Id}")
+    public ModelAndView editar(@PathVariable(name="Id") int Id){
+        ModelAndView modelo= new ModelAndView("editar");
+        Formulas formulas = frp.getReferenceById(Id);
+        modelo.addObject("formulas",formulas);
         return modelo;
     }
 
-
-
-
     @RequestMapping(value ="/guardar", method = RequestMethod.POST)
-    public String guardar_libro(@ModelAttribute("libros") Libros libros){
-        lrp.save(libros);
-        return "redirect:/admin";
+    public String guardar_formula(@ModelAttribute("formulas") Formulas formulas){
+        frp.save(formulas);
+        return "redirect:/index";
     }
 
 
 
-    @RequestMapping(value ="/eliminar/{Cod_libro}")
-    public String eliminar(@PathVariable(name="Cod_libro") int Cod_libro){
-        lrp.deleteById(Cod_libro);
-        return "redirect:/admin";
+    @RequestMapping(value ="/eliminar/{Id}")
+    public String eliminar(@PathVariable(name="Id") int Id){
+        frp.deleteById(Id);
+        return "redirect:/index";
     }
 
     @RequestMapping(value ="/guardarprestamo", method = RequestMethod.POST)

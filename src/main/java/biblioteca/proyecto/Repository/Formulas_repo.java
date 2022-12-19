@@ -3,8 +3,8 @@ package biblioteca.proyecto.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import biblioteca.proyecto.Model.Libros;
+import biblioteca.proyecto.Model.Formulas;
 
 @Repository
-public interface Libros_repo extends JpaRepository<Libros,Integer>{
+public interface Formulas_repo extends JpaRepository<Formulas,Integer>{
 }
